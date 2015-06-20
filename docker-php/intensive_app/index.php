@@ -16,7 +16,6 @@
 	</style>
 </head>
 <body>
-	<img id="logo" src="logo.png" />
 	<h1><?php echo "Hello ".($_ENV["NAME"]?$_ENV["NAME"]:"world")."!"; ?></h1>
 	<?php if($_ENV["HOSTNAME"]) {?><h3>My hostname is <?php echo $_ENV["HOSTNAME"]; ?></h3><?php } ?>
 	<?php
@@ -43,14 +42,6 @@
 		?>
 	<?php
 	}
-
-	if($_ENV["TUTUM_AUTH"]) {
-		?>
-		<h3>I have Tutum API powers!</h3>
-		<?php
-	}
-	?>
-	<?php
 		for ($i = -1; $i <= 2000; $i++) {
 		    $bytes = openssl_random_pseudo_bytes($i, $cstrong);
 		    $hex   = bin2hex($bytes);
