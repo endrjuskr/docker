@@ -15,6 +15,7 @@ ADD dacapo.jar /dacapo.jar
 ENV BENCH **null**
 ENV CL 5 
 ENV NR 1000
+ENV COUNT 5
 ENV HOST http://localhost:80/index.html
 ENV MHOST localhost
 ENV MPORT 3306
