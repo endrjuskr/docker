@@ -20,12 +20,12 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
 ENV ALLOW_OVERRIDE **False**
 
 # Add image configuration and scripts
-ADD ../run.sh /run.sh
+ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
 # Configure /app folder with sample app
 RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
-ADD ../intensive_app/ /app
+ADD intensive_app/ /app
 
 EXPOSE 80
 WORKDIR /app
