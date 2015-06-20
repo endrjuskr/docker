@@ -10,6 +10,7 @@ ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 
 ADD logs/ /logs/
+ADD dacapo.jar /dacapo.jar
 
 ENV BENCH **null**
 ENV CL 5 
@@ -19,5 +20,6 @@ ENV MHOST localhost
 ENV MPORT 3306
 ENV MTIME 60
 ENV CPRIME 20000
+ENV DCMD **null**
 
 CMD ["/run.sh"]

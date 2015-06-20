@@ -12,4 +12,6 @@ elif [ "$BENCH" = "mysql" ]; then
     --num-threads=8 run
 elif [ "$BENCH" = "cpu" ]; then
     sysbench --test=cpu --cpu-max-prime=${CPRIME} run
+elif [ "$BENCH" = "dacapo" ]; then
+	java -jar /dacapo.jar ${DCMD}
 fi
