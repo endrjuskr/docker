@@ -4,7 +4,7 @@ MAINTAINER Andrzej Skrodzki
 ENV TERM linux
 RUN apt-get -y update
 
-RUN apt-get -y install apache2-utils sysbench
+RUN apt-get -y install apache2-utils sysbench oracle-java8-installer
 
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
