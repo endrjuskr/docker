@@ -14,6 +14,7 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	elif [ "$BENCH" = "cpu" ]; then
 	    sysbench --test=cpu --cpu-max-prime=${CPRIME} run
 	elif [ "$BENCH" = "dacapo" ]; then
+		cat /xaa /xab > /dacapo.jar
 		java -jar /dacapo.jar ${DCMD}
 	fi
 done
