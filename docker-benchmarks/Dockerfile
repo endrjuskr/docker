@@ -11,7 +11,7 @@ RUN chmod 755 /*.sh
 
 ADD logs/ /logs/
 ADD xaa /xaa
-ADD xav /xab
+ADD xab /xab
 
 ENV BENCH **null**
 ENV CL 5 
