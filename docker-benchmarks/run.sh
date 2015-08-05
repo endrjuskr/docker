@@ -2,9 +2,9 @@
 echo $BENCH
 for (( i = 0; i < ${COUNT}; i++ )); do
 	if [ "$BENCH" = "ab1" ]; then
-	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST} > /logs/sample.out
+	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST} >> /logs/sample.out
 	elif [ "$BENCH" = "ab2" ]; then
-	    ab -c ${CL} -n ${NR} -e /logs/sample.csv ${HOST} > /logs/sample.out
+	    ab -c ${CL} -n ${NR} -e /logs/sample.csv ${HOST} >> /logs/sample.out
 	elif [ "$BENCH" = "mysql" ]; then
 	    sysbench --test=oltp --mysql-host=${MHOST} \
 	    --mysql-port=${MPORT} --oltp-table-size=1000000 \
@@ -18,3 +18,5 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 		java -jar /dacapo.jar ${DCMD}
 	fi
 done
+
+cat /logs/sample.out
