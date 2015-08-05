@@ -1,5 +1,4 @@
 #!/bin/bash
-echo $BENCH
 for (( i = 0; i < ${COUNT}; i++ )); do
 	if [ "$BENCH" = "ab1" ]; then
 	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST} >> /logs/sample.out
@@ -18,5 +17,3 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 		java -jar /dacapo.jar ${DCMD}
 	fi
 done
-
-cat /logs/sample.out
