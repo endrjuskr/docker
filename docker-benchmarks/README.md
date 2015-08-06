@@ -7,8 +7,8 @@ Benchmarks Docker image
 Currently available types of benchmarks:
 ---
 
-* Apache2 (`ab1`)
-* Apache2 with keep-alive (`ab2`)
+* Apache2 with keep-alive (`ab1`)
+* Apache2 (`ab2`)
 * MySQL (`mysql`)
 * IO (`io`)
 * CPU by calculating prime numbers (`cpu`)
