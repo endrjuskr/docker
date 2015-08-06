@@ -7,16 +7,20 @@ Benchmarks Docker image
 Currently available types of benchmarks:
 ---
 
-* apache benchmark (`ab1`)
-* apache benchmark with keep-alive (`ab2`)
-* sysbench for read-only MySQL (`mysql`)
+* Apache2 (`ab1`)
+* Apache2 with keep-alive (`ab2`)
+* MySQL (`mysql`)
+* IO ('io')
+* CPU by calculating prime numbers ('cpu')
+* dacapo, variaty of benchmarks ('dacapo')
 
 Run:
 ---
 
 ```
 	$ sudo docker run -e BENCH=ab1 -e CL=5 -e NR=1000 \
-	                -e HOST=http://google.pl/index.html \ 
+	                -e HOST=http://google.pl \
+	                -e WEBSITE=index.html \ 
 	                endrjuskr/benchmarks
 ```
 
@@ -24,12 +28,18 @@ Arguments to pass:
 ---
 
 * `BENCH` - type of benchmark
-* `CL` - concurrency level, used only in `ab`
-* `NR` - number of requests, used only in `ab`
-* `HOST` - host to benchmark, used only in `ab`
-* `MHOST` - MySQL host, used only in `mysql`
-* `MPORT` - MySQL port, used only in `mysql`
-* `MTIME` - time for benchmark execution, used only in `mysql`
+* `CL` - concurrency level
+* `NR` - number of requests
+* `HOST` - client's hostname
+* `PORT` - client's port
+* `TIME` - benchmark time limit
+* 'REQUESTS' - benchmark random requests limit
+* 'SIZE' - benchmark size
+* 'READONLY' - indicates if benchmark is read-only
+* 'THREADS' - benchmark thread limit
+* 'WEBSITE' - client's website address
+* 'CMD' - benchmark command to execute
+* 'COUNT' - number of consecutive benchmarks
 
 Pull
 ----

@@ -5,15 +5,20 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	elif [ "$BENCH" = "ab2" ]; then
 	    ab -c ${CL} -n ${NR} -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
 	elif [ "$BENCH" = "mysql" ]; then
-	    sysbench --test=oltp --mysql-host=${MHOST} \
-	    --mysql-port=${MPORT} --oltp-table-size=1000000 \
+	    sysbench --test=oltp --mysql-host=${HOST} \
+	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
-	    --max-time=${MTIME} --oltp-read-only=on --max-requests=0  \
-	    --num-threads=8 run
+	    --max-time=${TIME} --oltp-read-only=${READONLY} --max-requests=${REQUESTS}  \
+	    --num-threads=${THREADS} run >> /logs/sample.out
 	elif [ "$BENCH" = "cpu" ]; then
-	    sysbench --test=cpu --cpu-max-prime=${CPRIME} run
+	    sysbench --test=cpu --cpu-max-prime=${SIZE} \
+	    run >> /logs/sample.out
 	elif [ "$BENCH" = "dacapo" ]; then
 		cat /xaa /xab > /dacapo.jar
-		java -jar /dacapo.jar ${DCMD}
+		java -jar /dacapo.jar ${CMD} >> /logs/sample.out
+	elif [ "$BENCH" = "io" ]; then
+		sysbench --test=fileio --file-total-size=${SIZE} \
+		--file-test-mode=${READONLY} --init-rng=on --max-time=${TIME} \
+		--max-requests=${REQUESTS} run >> /logs/sample.out
 	fi
 done
