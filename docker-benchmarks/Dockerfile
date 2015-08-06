@@ -16,8 +16,9 @@ ADD xab /xab
 ENV BENCH **null**
 ENV CL 5 
 ENV NR 1000
-ENV COUNT 5
-ENV HOST http://localhost:80/index.html
+ENV COUNT 1
+ENV HOST http://localhost
+ENV WEBSITE index.html
 ENV MHOST localhost
 ENV MPORT 3306
 ENV MTIME 60

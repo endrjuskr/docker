@@ -1,9 +1,9 @@
 #!/bin/bash
 for (( i = 0; i < ${COUNT}; i++ )); do
 	if [ "$BENCH" = "ab1" ]; then
-	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST} >> /logs/sample.out
+	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
 	elif [ "$BENCH" = "ab2" ]; then
-	    ab -c ${CL} -n ${NR} -e /logs/sample.csv ${HOST} >> /logs/sample.out
+	    ab -c ${CL} -n ${NR} -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
 	elif [ "$BENCH" = "mysql" ]; then
 	    sysbench --test=oltp --mysql-host=${MHOST} \
 	    --mysql-port=${MPORT} --oltp-table-size=1000000 \
