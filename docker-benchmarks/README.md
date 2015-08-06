@@ -10,9 +10,9 @@ Currently available types of benchmarks:
 * Apache2 (`ab1`)
 * Apache2 with keep-alive (`ab2`)
 * MySQL (`mysql`)
-* IO ('io')
-* CPU by calculating prime numbers ('cpu')
-* dacapo, variaty of benchmarks ('dacapo')
+* IO (`io`)
+* CPU by calculating prime numbers (`cpu`)
+* dacapo, variaty of benchmarks (`dacapo`)
 
 Run:
 ---
@@ -38,7 +38,7 @@ Arguments to pass:
 * 'READONLY' - indicates if benchmark is read-only
 * 'THREADS' - benchmark thread limit
 * 'WEBSITE' - client's website address
-* 'CMD' - benchmark command to execute
+* 'CMD' - benchmark command to execute. Possible options you can find [on project's site](http://www.dacapobench.org/benchmarks.html)
 * 'COUNT' - number of consecutive benchmarks
 
 Pull
