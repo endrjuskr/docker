@@ -42,7 +42,7 @@
 		?>
 	<?php
 	}
-		for ($i = -1; $i <= 2000; $i++) {
+		for ($i = -1; $i <= 200; $i++) {
 		    $bytes = openssl_random_pseudo_bytes($i, $cstrong);
 		    $hex   = bin2hex($bytes);
 		
