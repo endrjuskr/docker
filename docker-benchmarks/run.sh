@@ -1,5 +1,6 @@
 #!/bin/bash
 for (( i = 0; i < ${COUNT}; i++ )); do
+        rm -f /logs/sample.csv /logs/sample.out
 	if [ "$BENCH" = "ab1" ]; then
 	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
 	elif [ "$BENCH" = "ab2" ]; then
