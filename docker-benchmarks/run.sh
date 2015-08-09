@@ -16,16 +16,21 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
 	    --max-time=${TIME} --oltp-read-only=off --max-requests=${REQUESTS}  \
-	    --num-threads=${THREADS} run >> /logs/sample.out
+	    --num-threads=8 run >> /logs/sample.out
 	elif [ "$BENCH" = "cpu" ]; then
-	    sysbench --test=cpu --cpu-max-prime=${SIZE} \
+	    sysbench --test=cpu --cpu-max-prime=${SIZE} --num-threads=8 \
 	    run >> /logs/sample.out
 	elif [ "$BENCH" = "dacapo" ]; then
 		cat /xaa /xab > /dacapo.jar
 		java -jar /dacapo.jar ${CMD} >> /logs/sample.out
-	elif [ "$BENCH" = "io" ]; then
-		sysbench --test=fileio --file-total-size=${SIZE} \
-		--file-test-mode=${READONLY} --init-rng=on --max-time=${TIME} \
-		--max-requests=${REQUESTS} run >> /logs/sample.out
+	elif [ "$BENCH" = "io1" ]; then
+		sysbench --test=fileio \
+		--file-test-mode=rndrd --init-rng=on \
+		run >> /logs/sample.out
+	fi
+	elif [ "$BENCH" = "io2" ]; then
+		sysbench --test=fileio \
+		--file-test-mode=rndwr --init-rng=on \
+		run >> /logs/sample.out
 	fi
 done

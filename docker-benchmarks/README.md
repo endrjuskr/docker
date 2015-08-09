@@ -11,7 +11,8 @@ Currently available types of benchmarks:
 * Apache2 (`ab2`)
 * MySQL read-only (`mysql1`)
 * MySQL (`mysql2`)
-* IO (`io`)
+* IO read-only (`io1`)
+* IO write-read (`io2`)
 * CPU by calculating prime numbers (`cpu`)
 * dacapo, variaty of benchmarks (`dacapo`)
 
