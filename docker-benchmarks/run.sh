@@ -5,12 +5,18 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
 	elif [ "$BENCH" = "ab2" ]; then
 	    ab -c ${CL} -n ${NR} -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
-	elif [ "$BENCH" = "mysql" ]; then
+	elif [ "$BENCH" = "mysql1" ]; then
 	    sysbench --test=oltp --mysql-host=${HOST} \
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
-	    --max-time=${TIME} --oltp-read-only=${READONLY} --max-requests=${REQUESTS}  \
-	    --num-threads=${THREADS} run
+	    --max-time=${TIME} --oltp-read-only=on --max-requests=${REQUESTS}  \
+	    --num-threads=${THREADS} run >> /logs/sample.out
+    elif [ "$BENCH" = "mysql2" ]; then
+	    sysbench --test=oltp --mysql-host=${HOST} \
+	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
+	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
+	    --max-time=${TIME} --oltp-read-only=off --max-requests=${REQUESTS}  \
+	    --num-threads=${THREADS} run >> /logs/sample.out
 	elif [ "$BENCH" = "cpu" ]; then
 	    sysbench --test=cpu --cpu-max-prime=${SIZE} \
 	    run >> /logs/sample.out
