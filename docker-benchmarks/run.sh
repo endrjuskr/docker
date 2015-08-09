@@ -10,7 +10,7 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
 	    --max-time=${TIME} --oltp-read-only=${READONLY} --max-requests=${REQUESTS}  \
-	    --num-threads=${THREADS} run >> /logs/sample.out
+	    --num-threads=${THREADS} run
 	elif [ "$BENCH" = "cpu" ]; then
 	    sysbench --test=cpu --cpu-max-prime=${SIZE} \
 	    run >> /logs/sample.out
