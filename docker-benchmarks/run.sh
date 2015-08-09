@@ -2,9 +2,9 @@
 for (( i = 0; i < ${COUNT}; i++ )); do
         rm -f /logs/sample.csv /logs/sample.out
 	if [ "$BENCH" = "ab1" ]; then
-	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
+	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv http://${HOST}:${PORT}/${WEBSITE} >> /logs/sample.out
 	elif [ "$BENCH" = "ab2" ]; then
-	    ab -c ${CL} -n ${NR} -e /logs/sample.csv ${HOST}/${WEBSITE} >> /logs/sample.out
+	    ab -c ${CL} -n ${NR} -e /logs/sample.csv http://${HOST}:${PORT}/${WEBSITE} >> /logs/sample.out
 	elif [ "$BENCH" = "mysql1" ]; then
 	    sysbench --test=oltp --mysql-host=${HOST} \
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
