@@ -33,13 +33,13 @@ Arguments to pass:
 * `HOST` - client's hostname
 * `PORT` - client's port
 * `TIME` - benchmark time limit
-* 'REQUESTS' - benchmark random requests limit
-* 'SIZE' - benchmark size
-* 'READONLY' - indicates if benchmark is read-only
-* 'THREADS' - benchmark thread limit
-* 'WEBSITE' - client's website address
-* 'CMD' - benchmark command to execute. Possible options you can find [on project's site](http://www.dacapobench.org/benchmarks.html)
-* 'COUNT' - number of consecutive benchmarks
+* `REQUESTS` - benchmark random requests limit
+* `SIZE` - benchmark size
+* `READONLY` - indicates if benchmark is read-only
+* `THREADS` - benchmark thread limit
+* `WEBSITE` - client's website address
+* `CMD` - benchmark command to execute. Possible options you can find [on project's site](http://www.dacapobench.org/benchmarks.html)
+* `COUNT` - number of consecutive benchmarks
 
 Pull
 ----
