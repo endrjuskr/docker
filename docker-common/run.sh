@@ -15,6 +15,8 @@ cat /etc/apache2-1/ports.conf
 echo "apache2.conf -> "
 cat /etc/apache2-1/apache2.conf
 
+ls -l /var/log/
+
 
 source /etc/apache2-1/envvars
 
