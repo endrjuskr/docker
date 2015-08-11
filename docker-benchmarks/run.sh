@@ -32,7 +32,6 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 		sysbench --test=fileio \
 		--file-test-mode=rndrd --init-rng=on \
 		run > /logs/sample.out 2>>/logs/sample.err
-	fi
 	elif [ "$BENCH" = "io2" ]; then
 		sysbench --test=fileio \
 		--file-test-mode=rndwr --init-rng=on \
