@@ -43,5 +43,11 @@ ENV ON_CREATE_DB test
 # Add VOLUMEs to allow backup of config and databases
 VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 
+RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+ADD app/ /app
+
+EXPOSE 88
+WORKDIR /app
+
 EXPOSE 3306
 CMD ["/run.sh"]
