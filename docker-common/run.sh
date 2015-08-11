@@ -20,7 +20,9 @@ ls -l /var/log/apache2-1/
 
 source /etc/apache2-1/envvars
 
-/usr/sbin/apache2ctl -d /etc/apache2-1/ -k start
+/usr/sbin/apache2ctl -d /etc/apache2-1/ -k start 2> tt.out
+
+cat tt.out
 
 tail -F /var/log/apache2-1/* &
 
