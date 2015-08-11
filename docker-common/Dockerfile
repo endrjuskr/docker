@@ -44,6 +44,7 @@ ENV ON_CREATE_DB test
 VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 
 RUN mkdir -p /app && rm -fr /var/www/app1 && ln -s /app /var/www/app1
+RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
 ADD app/ /app
 
 EXPOSE 86
