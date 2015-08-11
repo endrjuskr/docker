@@ -20,7 +20,8 @@ ls -l /var/log/apache2-1/
 
 source /etc/apache2-1/envvars
 
-tail -F /var/log/apache2-1/* &
 /usr/sbin/apache2ctl -d /etc/apache2-1/ -k start
+
+tail -F /var/log/apache2-1/* &
 
 sleep infinity
