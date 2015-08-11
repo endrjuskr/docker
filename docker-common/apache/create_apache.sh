@@ -23,7 +23,7 @@ do
     cp $SERVER_ROOT/apache2-$i/apache2.conf $SERVER_ROOT/apache2-$i/apache2.conf.bak
     rm $SERVER_ROOT/apache2-$i/apache2.conf
     cat $SERVER_ROOT/apache2-$i/apache2.conf.bak | sed -e 's/StartServers          2/StartServers          4/g' > $SERVER_ROOT/apache2-$i/apache2.conf.bak2
-    #cat $SERVER_ROOT/apache2-$i/apache2.conf.bak2 | sed -e "s/\/var\/www/\/var\/www\/app$i/g" > $SERVER_ROOT/apache2-$i/apache2.conf
+    cat $SERVER_ROOT/apache2-$i/apache2.conf.bak2 > $SERVER_ROOT/apache2-$i/apache2.conf
 
     rm $SERVER_ROOT/apache2-$i/apache2.conf.bak2 $SERVER_ROOT/apache2-$i/apache2.conf.bak
 
