@@ -57,6 +57,7 @@ if [[ ! -d $VOLUME_HOME/mysql ]]; then
     echo "=> Done!"
     echo "=> Creating admin user ..."
     CreateMySQLUser
+fi
 
 StartMySQL
 sysbench --test=oltp --oltp-table-size=1000000 --mysql-db=test --mysql-user=root  prepare
