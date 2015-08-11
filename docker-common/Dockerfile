@@ -46,7 +46,7 @@ VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 RUN mkdir -p /app && rm -fr /var/www/app1 && ln -s /app /var/www/app1
 ADD app/ /app
 
-EXPOSE 80
+EXPOSE 86
 
 EXPOSE 3306
 CMD ["/run.sh"]

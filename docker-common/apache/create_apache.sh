@@ -32,7 +32,7 @@ do
     ln -s /etc/apache2/mods-available $SERVER_ROOT/apache2-$i/mods_available
     ln -s /etc/apache2/mods-enabled $SERVER_ROOT/apache2-$i/mods_enabled
     rm -f $SERVER_ROOT/apache2-$i/envvars
-    port=$((i + 79))
+    port=$((i + 85))
     host="$2:$port"
     echo $host
     cat apache_envvars_template | sed -e s/__NO_INSTANCE__/"$i"/g | sed -e s/__PORT__/"$port"/g | sed -e s/__HOST_IP__/"$host"/g > $SERVER_ROOT/apache2-$i/envvars
