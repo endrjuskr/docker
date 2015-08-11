@@ -14,16 +14,16 @@ do
 
     mkdir -p $SERVER_ROOT/apache2-$i/logrotate.d/
     cp -a /etc/logrotate.d/apache2 $SERVER_ROOT/apache2-$i/logrotate.d/apache2-$i
-    mkdir -p $SERVER_ROOT/apache2-$i/log/apache2-$i
-    chmod 750 $SERVER_ROOT/apache2-$i/log/apache2-$i
+    mkdir -p /var/log/apache2-$i
+    chmod 750 /var/log/apache2-$i
 
-    mkdir -p $SERVER_ROOT/apache2-$i/run/
-    mkdir -p $SERVER_ROOT/apache2-$i/lock/
+    mkdir -p /var/run/apache2-$i
+    mkdir -p /var/lock/apache2-$i
 
     cp $SERVER_ROOT/apache2-$i/apache2.conf $SERVER_ROOT/apache2-$i/apache2.conf.bak
     rm $SERVER_ROOT/apache2-$i/apache2.conf
     cat $SERVER_ROOT/apache2-$i/apache2.conf.bak | sed -e 's/StartServers          2/StartServers          4/g' > $SERVER_ROOT/apache2-$i/apache2.conf.bak2
-    cat $SERVER_ROOT/apache2-$i/apache2.conf.bak2 | sed -e "s/\/var\/www/\/var\/www\/app$i/g" > $SERVER_ROOT/apache2-$i/apache2.conf
+    #cat $SERVER_ROOT/apache2-$i/apache2.conf.bak2 | sed -e "s/\/var\/www/\/var\/www\/app$i/g" > $SERVER_ROOT/apache2-$i/apache2.conf
 
     rm $SERVER_ROOT/apache2-$i/apache2.conf.bak2 $SERVER_ROOT/apache2-$i/apache2.conf.bak
 

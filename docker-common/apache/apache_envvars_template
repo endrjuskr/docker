@@ -4,10 +4,10 @@ unset HOME
 
 export APACHE_RUN_USER=www-data
 export APACHE_RUN_GROUP=www-data
-export APACHE_PID_FILE=/etc/apache2-__NO_INSTANCE__/run/apache2-__NO_INSTANCE__.pid
-export APACHE_RUN_DIR=/etc/apache2-__NO_INSTANCE__/run/apache2-__NO_INSTANCE__
-export APACHE_LOCK_DIR=/etc/apache2-__NO_INSTANCE__/lock/apache2-__NO_INSTANCE__
-export APACHE_LOG_DIR=/etc/apache2-__NO_INSTANCE__/log/apache2-__NO_INSTANCE__
+export APACHE_PID_FILE=/var/run/apache2-__NO_INSTANCE__.pid
+export APACHE_RUN_DIR=/var/run/apache2-__NO_INSTANCE__
+export APACHE_LOCK_DIR=/var/lock/apache2-__NO_INSTANCE__
+export APACHE_LOG_DIR=/var/log/apache2-__NO_INSTANCE__
 
 export LANG=C
 export LANG

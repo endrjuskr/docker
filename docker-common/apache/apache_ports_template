@@ -1,4 +1,4 @@
-Listen __HOST_IP__:__PORT__
+Listen __PORT__
 
 <IfModule ssl_module>
   Listen 443
