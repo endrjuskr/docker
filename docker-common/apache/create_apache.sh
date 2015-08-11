@@ -14,8 +14,8 @@ do
 
     mkdir -p $SERVER_ROOT/apache2-$i/logrotate.d/
     cp -a /etc/logrotate.d/apache2 $SERVER_ROOT/apache2-$i/logrotate.d/apache2-$i
-    mkdir -p /var/log/apache2-$i
-    chmod 750 /var/log/apache2-$i
+    mkdir -p /var/log/apache2-$i/
+    chmod 750 /var/log/apache2-$i/
 
     mkdir -p /var/run/apache2-$i
     mkdir -p /var/lock/apache2-$i
