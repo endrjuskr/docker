@@ -63,4 +63,4 @@ StartMySQL
 sysbench --test=oltp --oltp-table-size=1000000 --mysql-db=test --mysql-user=root  prepare
 mysqladmin -uroot shutdown
 
-tail -F $LOG & exec mysqld_safe
+tail -F $LOG & echo "DONE" > /done.log & exec mysqld_safe

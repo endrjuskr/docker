@@ -40,14 +40,33 @@ ENV MYSQL_USER admin
 ENV MYSQL_PASS test1234
 ENV ON_CREATE_DB test
 
+ENV APACHE_1 **False**
+ENV APACHE_2 **False**
+ENV APACHE_3 **False**
+ENV APACHE_4 **False** 
+
+ENV APACHE_COUNT 0
+ENV MYSQL_COUNT 0
+ENV CPU_COUNT 0
+
 # Add VOLUMEs to allow backup of config and databases
 VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 
-RUN mkdir -p /app && mkdir /var/www/app1 && mkdir /var/www/app1/html && ln -s /app /var/www/app1/html
-RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
-ADD app/ /app
+# RUN mkdir -p /app_simple && mkdir /var/www/app1 && mkdir /var/www/app1/html && ln -s /app /var/www/app1/html
+# RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
+ADD app_simple/ /app_simple
+ADD app_intensive/ /app_intensive
+ADD dacapo/ /dacapo
+
 
 EXPOSE 86
+EXPOSE 87
+EXPOSE 88
+EXPOSE 89
 
-EXPOSE 3306
+EXPOSE 3307
+EXPOSE 3308
+EXPOSE 3309
+EXPOSE 3310
+
 CMD ["/run.sh"]

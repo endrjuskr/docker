@@ -21,6 +21,7 @@ ENV ALLOW_OVERRIDE **False**
 
 # Add image configuration and scripts
 ADD run.sh /run.sh
+ADD done.log /done.log
 RUN chmod 755 /*.sh
 
 # Configure /app folder with sample app
