@@ -1,0 +1,2 @@
+ServerName __HOST_IP__
+ServerRoot "/etc/apache2-__NO_INSTANCE__"
