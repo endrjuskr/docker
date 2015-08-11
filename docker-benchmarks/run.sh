@@ -1,8 +1,14 @@
 #!/bin/bash
 for (( i = 0; i < ${COUNT}; i++ )); do
 	if [ "$BENCH" = "ab1" ]; then
+		echo ${HOST} >> /logs/sample.err
+		echo ${PORT} >> /logs/sample.err
+		echo ${WEBSITE} >> /logs/sample.err
 	    ab -c ${CL} -n ${NR} -k -e /logs/sample.csv http://${HOST}:${PORT}/${WEBSITE} > /logs/sample.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "ab2" ]; then
+		echo ${HOST} >> /logs/sample.err
+		echo ${PORT} >> /logs/sample.err
+		echo ${WEBSITE} >> /logs/sample.err
 	    ab -c ${CL} -n ${NR} -e /logs/sample.csv http://${HOST}:${PORT}/${WEBSITE} > /logs/sample.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "mysql1" ]; then
 	    sysbench --test=oltp --mysql-host=${HOST} \
