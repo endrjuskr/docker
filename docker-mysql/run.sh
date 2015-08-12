@@ -33,7 +33,7 @@ CreateMySQLUser()
     echo "Creating MySQL database ${ON_CREATE_DB}"
     mysql -uroot -e "CREATE DATABASE IF NOT EXISTS ${ON_CREATE_DB};"
     echo "Database created!"
-    	
+
 	PASS=${MYSQL_PASS}
 	_word=$( [ ${MYSQL_PASS} ] && echo "preset" || echo "random" )
 	echo "=> Creating MySQL user ${MYSQL_USER} with ${_word} password"
@@ -63,4 +63,4 @@ StartMySQL
 sysbench --test=oltp --oltp-table-size=1000000 --mysql-db=test --mysql-user=root  prepare
 mysqladmin -uroot shutdown
 
-tail -F $LOG & echo "DONE" > /done.log & exec mysqld_safe
+tail -F $LOG & echo "DONE" > /logs/done.out & exec mysqld_safe

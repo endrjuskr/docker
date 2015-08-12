@@ -19,7 +19,7 @@ ADD mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
 
 # Add MySQL scripts
 ADD run.sh /run.sh
-ADD done.log /done.log
+ADD logs /logs
 RUN chmod 755 /*.sh
 
 # Exposed ENV

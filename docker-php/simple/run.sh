@@ -9,5 +9,5 @@ else
 fi
 
 source /etc/apache2/envvars
-echo "DONE" > done.log
+echo "DONE" > /logs/done.out
 tail -F /var/log/apache2/* & exec apache2 -D FOREGROUND
