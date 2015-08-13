@@ -34,3 +34,5 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 		cat /logs/sample.*
 	fi
 done
+
+cat /logs/sample*
