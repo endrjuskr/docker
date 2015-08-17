@@ -60,7 +60,7 @@ if [[ ! -d $VOLUME_HOME/mysql ]]; then
 fi
 
 StartMySQL
-sysbench --test=oltp --oltp-table-size=1000000 --mysql-db=test --mysql-user=root  prepare
+sysbench --test=oltp --oltp-table-size=50000 --mysql-db=test --mysql-user=root  prepare
 mysqladmin -uroot shutdown
 
 tail -F $LOG & echo "DONE" > /logs/done.out & exec mysqld_safe
