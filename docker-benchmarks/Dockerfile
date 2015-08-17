@@ -14,14 +14,14 @@ ADD xaa /xaa
 ADD xab /xab
 
 ENV BENCH **null**
-ENV CL 5 
+ENV CL 5
 ENV NR 1000
 ENV COUNT 1
 ENV HOST http://localhost
 ENV WEBSITE index.html
 ENV PORT 3306
 ENV TIME 60
-ENV SIZE 20000
+ENV SIZE 50000
 ENV CMD **null**
 ENV THREADS 8
 
