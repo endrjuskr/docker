@@ -1,15 +1,5 @@
 #!/bin/bash
 
-chown www-data:www-data /app_simple1 -R
-chown www-data:www-data /app_simple2 -R
-chown www-data:www-data /app_simple3 -R
-chown www-data:www-data /app_simple4 -R
-
-chown www-data:www-data /app_intensive1 -R
-chown www-data:www-data /app_intensive2 -R
-chown www-data:www-data /app_intensive3 -R
-chown www-data:www-data /app_intensive4 -R
-
 
 if [ "$APACHE_1" = "simple" ]; then
   ln -s /app_simple1 /var/www/app1/html
@@ -45,6 +35,15 @@ chmod +x install_mysql.sh
 sh create_mysql.sh $MYSQL_COUNT
 sh install_mysql.sh $MYSQL_COUNT
 
+chown www-data:www-data /app_simple1 -R
+chown www-data:www-data /app_simple2 -R
+chown www-data:www-data /app_simple3 -R
+chown www-data:www-data /app_simple4 -R
+
+chown www-data:www-data /app_intensive1 -R
+chown www-data:www-data /app_intensive2 -R
+chown www-data:www-data /app_intensive3 -R
+chown www-data:www-data /app_intensive4 -R
 
 
 for i in `seq 1 $APACHE_COUNT`
