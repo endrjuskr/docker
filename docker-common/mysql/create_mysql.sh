@@ -16,5 +16,3 @@ do
     chown -R mysql:mysql /var/log/mysql/mysql$port
     chmod -R 755 /var/log/mysql/mysql$port
 done;
-
-service apparmor reload

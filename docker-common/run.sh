@@ -38,6 +38,15 @@ fi
 cd apache
 chmod +x create_apache.sh
 sh create_apache.sh $APACHE_COUNT localhost
+
+cd ../mysql
+chmod +x create_mysql.sh
+chmod +x install_mysql.sh
+sh create_mysql.sh $MYSQL_COUNT
+sh install_mysql.sh $MYSQL_COUNT
+
+
+
 for i in `seq 1 $APACHE_COUNT`
 do
   source /etc/apache2-$i/envvars

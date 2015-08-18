@@ -34,6 +34,7 @@ ADD mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
 ADD apache /apache
+ADD mysql /mysql
 
 # Exposed ENV
 ENV MYSQL_USER admin
