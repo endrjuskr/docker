@@ -43,7 +43,7 @@ ENV ON_CREATE_DB test
 ENV APACHE_1 **False**
 ENV APACHE_2 **False**
 ENV APACHE_3 **False**
-ENV APACHE_4 **False** 
+ENV APACHE_4 **False**
 
 ENV APACHE_COUNT 0
 ENV MYSQL_COUNT 0
@@ -52,10 +52,19 @@ ENV CPU_COUNT 0
 # Add VOLUMEs to allow backup of config and databases
 VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 
-# RUN mkdir -p /app_simple && mkdir /var/www/app1 && mkdir /var/www/app1/html && ln -s /app /var/www/app1/html
-# RUN mkdir -p /app && rm -fr /var/www/html && ln -s /app /var/www/html
-ADD app_simple/ /app_simple
-ADD app_intensive/ /app_intensive
+RUN mkdir -p /app_simple1 && mkdir -p /app_intensive1
+RUN mkdir -p /app_simple2 && mkdir -p /app_intensive2
+RUN mkdir -p /app_simple3 && mkdir -p /app_intensive3
+RUN mkdir -p /app_simple4 && mkdir -p /app_intensive4
+RUN mkdir -p /var/www/app1/html && mkdir -p /var/www/app2/html && mkdir -p /var/www/app3/html && mkdir -p /var/www/app4/html
+ADD app_simple/ /app_simple1
+ADD app_intensive/ /app_intensive1
+ADD app_simple/ /app_simple2
+ADD app_intensive/ /app_intensive2
+ADD app_simple/ /app_simple3
+ADD app_intensive/ /app_intensive3
+ADD app_simple/ /app_simple4
+ADD app_intensive/ /app_intensive4
 ADD dacapo/ /dacapo
 
 
