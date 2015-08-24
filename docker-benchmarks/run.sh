@@ -10,12 +10,24 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
 	    --max-time=${TIME} --oltp-read-only=on --max-requests=${REQUESTS}  \
 	    --num-threads=${THREADS} run > /logs/sample$i.out 2>>/logs/sample.err
-    elif [ "$BENCH" = "mysql2" ]; then
+  elif [ "$BENCH" = "mysql2" ]; then
 	    sysbench --test=oltp --mysql-host=${HOST} \
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
 	    --max-time=${TIME} --oltp-read-only=off --max-requests=${REQUESTS}  \
 	    --num-threads=8 run > /logs/sample$i.out 2>>/logs/sample.err
+	elif [ "$BENCH" = "mysql3" ]; then
+		    sysbench --test=oltp --mysql-host=${HOST} \
+		    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
+		    --mysql-db=test${PORT} --mysql-user=root \
+		    --max-time=${TIME} --oltp-read-only=on --max-requests=${REQUESTS}  \
+		    --num-threads=${THREADS} run > /logs/sample$i.out 2>>/logs/sample.err
+  elif [ "$BENCH" = "mysql4" ]; then
+		    sysbench --test=oltp --mysql-host=${HOST} \
+		    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
+		    --mysql-db=test${PORT} --mysql-user=root \
+		    --max-time=${TIME} --oltp-read-only=off --max-requests=${REQUESTS}  \
+		    --num-threads=8 run > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "cpu" ]; then
 	    sysbench --test=cpu --cpu-max-prime=${SIZE} --num-threads=8 \
 	    run > /logs/sample$i.out 2>>/logs/sample.err
