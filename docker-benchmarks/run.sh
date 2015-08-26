@@ -15,7 +15,7 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
 	    --max-time=${TIME} --oltp-read-only=off --max-requests=${REQUESTS}  \
-	    --num-threads=8 run > /logs/sample$i.out 2>>/logs/sample.err
+	    --num-threads=${THREADS} run > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "mysql3" ]; then
 		    sysbench --test=oltp --mysql-host=${HOST} \
 		    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
@@ -33,18 +33,14 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    run > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "dacapo" ]; then
 		cat /xaa /xab > /dacapo.jar
-		java -jar /dacapo.jar ${CMD}
+		java -jar /dacapo.jar ${CMD} > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "io1" ]; then
 		sysbench --test=fileio \
 		--file-test-mode=rndrd --init-rng=on \
 		run > /logs/sample.out 2>>/logs/sample.err
-		cat /logs/sample.*
 	elif [ "$BENCH" = "io2" ]; then
 		sysbench --test=fileio \
 		--file-test-mode=rndwr --init-rng=on \
 		run > /logs/sample.out 2>>/logs/sample.err
-		cat /logs/sample.*
 	fi
 done
-
-cat /logs/sample*
