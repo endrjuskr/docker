@@ -33,7 +33,7 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    run > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "dacapo" ]; then
 		cat /xaa /xab > /dacapo.jar
-		java -jar /dacapo.jar ${CMD} > /logs/sample$i.out 2>>/logs/sample.err
+		java -jar /dacapo.jar ${CMD} > /logs/sample$i.out 2>>/logs/sample$1.out
 	elif [ "$BENCH" = "io1" ]; then
 		sysbench --test=fileio \
 		--file-test-mode=rndrd --init-rng=on \
