@@ -68,4 +68,3 @@ Supported `dacapo` tests
 | tradebeans | runs the daytrader benchmark via a Jave Beans to a GERONIMO backend with an in memory h2 as the underlying database | x |
 | tradesoap | runs the daytrader benchmark via a SOAP to a GERONIMO backend with in memory h2 as the underlying database | x |
 | xalan | transforms XML documents into HTML | x |
-
