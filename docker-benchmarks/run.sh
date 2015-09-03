@@ -1,5 +1,7 @@
 #!/bin/bash
 for (( i = 0; i < ${COUNT}; i++ )); do
+        touch /logs/sample$1.out
+	touch /logs/sample.err
 	if [ "$BENCH" = "ab1" ]; then
 		ab -c ${CL} -n ${NR} -k -e /logs/sample$i.csv http://${HOST}:${PORT}/${WEBSITE} > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "ab2" ]; then
@@ -33,7 +35,7 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    run > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "dacapo" ]; then
 		cat /xaa /xab > /dacapo.jar
-		java -jar /dacapo.jar ${CMD} 2>>/logs/sample$1.out
+		java -jar /dacapo.jar ${CMD} >> /logs/sample$1.out 2>> /logs/sample$1.out
 	elif [ "$BENCH" = "io1" ]; then
 		sysbench --test=fileio \
 		--file-test-mode=rndrd --init-rng=on \
@@ -43,4 +45,5 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 		--file-test-mode=rndwr --init-rng=on \
 		run > /logs/sample.out 2>>/logs/sample.err
 	fi
+        cat /logs/sample$1.out
 done
