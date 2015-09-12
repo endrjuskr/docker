@@ -1,6 +1,6 @@
 #!/bin/bash
 for (( i = 0; i < ${COUNT}; i++ )); do
-        touch /logs/sample$1.out
+  touch /logs/sample$i.out
 	touch /logs/sample.err
 	if [ "$BENCH" = "ab1" ]; then
 		ab -c ${CL} -n ${NR} -k -e /logs/sample$i.csv http://${HOST}:${PORT}/${WEBSITE} > /logs/sample$i.out 2>>/logs/sample.err
@@ -47,5 +47,5 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 		--file-test-mode=rndwr --init-rng=on \
 		run > /logs/sample.out 2>>/logs/sample.err
 	fi
-        cat /logs/sample$i.out
+  cat /logs/sample$i.out
 done
