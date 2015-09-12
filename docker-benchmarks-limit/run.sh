@@ -6,4 +6,6 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	elif [ "$BENCH" = "dacapo" ]; then
 		./cpulimit/src/cpulimit -l ${CPULIMIT} java -jar /dacapo.jar ${CMD} >> /logs/sample$i.out 2>> /logs/sample$i.out
 	fi
+  cat /logs/sample$i.out
+  cat /logs/sample.err
 done
