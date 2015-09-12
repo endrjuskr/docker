@@ -6,6 +6,8 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 		ab -c ${CL} -n ${NR} -k -e /logs/sample$i.csv http://${HOST}:${PORT}/${WEBSITE} > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "ab2" ]; then
 		ab -c ${CL} -n ${NR} -e /logs/sample$i.csv http://${HOST}:${PORT}/${WEBSITE} > /logs/sample$i.out 2>>/logs/sample.err
+  elif [ "$BENCH" = "siege"]; then
+    siege -d${DELAY} -t${TIME}s -c${CL} http://${HOST}:${PORT}/${WEBSITE} >> /logs/sample$i.out 2>> /logs/sample$i.out
 	elif [ "$BENCH" = "mysql1" ]; then
 	    sysbench --test=oltp --mysql-host=${HOST} \
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \

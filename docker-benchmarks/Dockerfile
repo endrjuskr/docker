@@ -4,7 +4,7 @@ MAINTAINER Andrzej Skrodzki
 ENV TERM linux
 RUN apt-get -y update
 
-RUN apt-get -y install apache2-utils sysbench openjdk-7-jdk openjdk-7-jre
+RUN apt-get -y install apache2-utils sysbench openjdk-7-jdk openjdk-7-jre siege
 
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
@@ -12,6 +12,7 @@ RUN chmod 755 /*.sh
 ADD logs/ /logs/
 ADD xaa /xaa
 ADD xab /xab
+RUN cat /xaa /xab > /dacapo.jar
 
 ENV BENCH **null**
 ENV CL 5
@@ -24,5 +25,6 @@ ENV TIME 60
 ENV SIZE 50000
 ENV CMD **null**
 ENV THREADS 8
+ENV DELAY 1
 
 CMD ["/run.sh"]
