@@ -4,7 +4,7 @@ MAINTAINER Andrzej Skrodzki
 ENV TERM linux
 RUN apt-get -y update
 
-RUN apt-get -y install apache2-utils sysbench openjdk-7-jdk openjdk-7-jre git
+RUN apt-get -y install apache2-utils sysbench openjdk-7-jdk openjdk-7-jre git autoconf make
 
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
