@@ -15,12 +15,12 @@ ADD xab /xab
 RUN cat /xaa /xab > /dacapo.jar
 
 RUN git clone https://github.com/endrjuskr/siege.git
-RUN cd /siege
+WORKDIR /siege
 RUN sh utils/bootstrap
 RUN sh configure --with-ssl=no
 RUN make
 RUN make install
-RUN cd ..
+WORKDIR /
 
 ENV BENCH **null**
 ENV CL 5
