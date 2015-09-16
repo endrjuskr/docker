@@ -12,12 +12,12 @@ for (( i = 0; i < ${COUNT}; i++ )); do
 	    sysbench --test=oltp --mysql-host=${HOST} \
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
 	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
-	    --max-time=${TIME} --oltp-read-only=on --oltp-user-delay-min=${DELAY}  \
+	    --max-time=${TIME} --max-requests=0 --oltp-read-only=on --oltp-user-delay-min=${DELAY}  \
 	    --num-threads=${THREADS} run > /logs/sample$i.out 2>>/logs/sample.err
   elif [ "$BENCH" = "mysql2" ]; then
 	    sysbench --test=oltp --mysql-host=${HOST} \
 	    --mysql-port=${PORT} --oltp-table-size=${SIZE} \
-	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 \
+	    --mysql-db=test --mysql-user=admin --mysql-password=test1234 --max-requests=0 \
 	    --max-time=${TIME} --oltp-read-only=off --oltp-user-delay-min=${DELAY}  \
 	    --num-threads=${THREADS} run > /logs/sample$i.out 2>>/logs/sample.err
 	elif [ "$BENCH" = "mysql3" ]; then
