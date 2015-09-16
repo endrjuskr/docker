@@ -4,7 +4,7 @@ MAINTAINER Andrzej Skrodzki
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-  apt-get -yq install mysql-server-5.6 pwgen sysbench && \
+  apt-get -yq install mysql-server mysql-client pwgen sysbench && \
   rm -rf /var/lib/apt/lists/*
 
 # Remove pre-installed database

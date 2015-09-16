@@ -4,7 +4,7 @@ MAINTAINER Andrzej Skrodzki
 ENV TERM linux
 RUN apt-get -y update
 
-RUN apt-get -y install apache2-utils sysbench openjdk-7-jdk openjdk-7-jre git autoconf make
+RUN apt-get -y install apache2-utils sysbench openjdk-7-jdk openjdk-7-jre git autoconf make gcc
 
 ADD run.sh /run.sh
 RUN chmod 755 /*.sh
@@ -15,10 +15,12 @@ ADD xab /xab
 RUN cat /xaa /xab > /dacapo.jar
 
 RUN git clone https://github.com/endrjuskr/siege.git
-RUN sh /siege/utils/bootstrap
-RUN sh /siege/configure --with-ssl=no
-RUN make -C /siege
-RUN make -C /siege install
+WORKDIR /siege
+RUN sh utils/bootstrap
+RUN sh configure --with-ssl=no
+RUN make
+RUN make install
+WORKDIR /
 
 ENV BENCH **null**
 ENV CL 5
